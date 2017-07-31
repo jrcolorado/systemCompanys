@@ -26,12 +26,33 @@ class LoginController extends Controller{
         $this->loadView('Login', $data);
     }
     
+   /** 
+    public function logout(){
+        $u = new Users();
+        $u->setLoggedUser();
+        if($u->hasPermission('logout')){
+             $u->logout();
+             header("Location: ".BASE_URL);
+        }else {
+            echo "NÃO PODE FAZER LOGOUT....";
+            exit();
+        }
+       
+    }*/
+    
+    
+    
     
     public function logout(){
         $u = new Users();
         $u->logout();
         header("Location: ".BASE_URL);
-    }
+        
+        }
+     
+     
+    
+    
 
 }
 

@@ -14,7 +14,9 @@ ini_set('display_errors', 'On');
     <body>
         <div class="loginarea">
             <form method="POST">
+                E-mail:
                 <input type="email" name="email" placeholder="Digite seu email"/>
+                Senha:
                 <input type="password" name="password" placeholder="Digite sua senha"/>
                 <input type="submit" value="Entrar"/><br/>
                 <?php if(isset($error) && !empty($error)):?>

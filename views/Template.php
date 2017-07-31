@@ -2,6 +2,8 @@
     <head>
         <title>Painel - <?php echo $viewData['company_name']; ?></title>
           <link href="<?php echo BASE_URL; ?>/assets/css/template.css" rel="stylesheet" />
+          <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery-3.0.0.min.js"></script>
+          <script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script.js"></script>
     </head>
     
     <body>

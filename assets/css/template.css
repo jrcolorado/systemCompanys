@@ -71,18 +71,25 @@ body {
     background-image:url('../images/key.png');
 }
 .area{
-    padding-left: 200px;
-    
+    padding-left: 215px;
+     
 }
-.sair li:nth-child(1){
-    background-image:url('../images/logout.png');
-    background-size: 10px 10px;
-    background-repeat: no-repeat;
-    background-position: 10px 14px;
+.tabitem{
+    float: left;
+    width: 50%;
+    text-align: center;
+    line-height: 40px;
+    border-bottom: 1px solid #000;
+    background-color: #EEE;
+    cursor: pointer;
 }
-
-
-
+.activetab{
+    border-bottom: 1px solid #FFF;
+    background-color: #FFF;
+}
+.tabbody{
+    display: none;
+}
 
 
 
