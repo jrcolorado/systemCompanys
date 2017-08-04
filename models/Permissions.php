@@ -48,4 +48,87 @@ class Permissions extends model{
         }
     }
     
+    public function getList($id_company){
+        $array = array();
+        $sql= $this->db->prepare("SELECT * FROM permission_params WHERE id_company = :id_company");
+        $sql->bindValue(":id_company",$id_company);
+        $sql->execute();
+        
+        if($sql->rowCount()>0){
+            $array= $sql->fetchAll();
+        }
+        return $array;
+        
+    }
+    
+    
+    public function getGroupList($id_company){
+       $array = array();
+        $sql= $this->db->prepare("SELECT * FROM permissions_group WHERE id_company = :id_company");
+        $sql->bindValue(":id_company",$id_company);
+        $sql->execute();
+        
+        if($sql->rowCount()>0){
+            $array= $sql->fetchAll();
+        }  
+           return $array;
+    }
+    
+    public function getGroup($id, $id_company){
+        $array = array();
+        $sql= $this->db->prepare("SELECT * FROM permissions_group WHERE id = :id AND id_company = :id_company");
+        $sql->bindValue(":id",$id);
+        $sql->bindValue(":id_company",$id_company);
+        $sql->execute();
+        
+        if($sql->rowCount()>0){
+            $array= $sql->fetch();
+            $array['params']= explode(',', $array['params']);
+            
+        }  
+           return $array;
+        
+    }
+
+    public function add($name, $id_company){
+        $sql= $this->db->prepare("INSERT INTO permission_params SET name = :name, id_company = :id_company");
+        $sql->bindValue(":name", $name);
+        $sql->bindValue(":id_company",$id_company);
+        $sql->execute();
+    }
+    
+      public function add_group($name, $plist, $id_company){
+        $sql= $this->db->prepare("INSERT INTO permissions_group SET name = :name, id_company = :id_company, params = :params");
+        $params = implode(',', $plist);
+        $sql->bindValue(":name", $name);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->bindValue(":params", $params);
+        $sql->execute();
+    }
+     public function set_group($name, $plist, $id, $id_company){
+        $sql= $this->db->prepare("UPDATE permissions_group SET name = :name, id_company = :id_company, params = :params where id = :id");
+        $params = implode(',', $plist);
+        $sql->bindValue(":id", $id);
+        $sql->bindValue(":name", $name);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->bindValue(":params", $params);
+        $sql->execute();
+    }
+    
+    public function delete($id){
+        $sql = $this->db->prepare("DELETE FROM permission_params WHERE id = :id");
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+    }
+    
+        
+    public function delete_group($id){
+        $u = new Users();
+        if($u->findUsersInGroup($id) == false){
+                $sql = $this->db->prepare("DELETE FROM permissions_group WHERE id = :id");
+                $sql->bindValue(":id", $id);
+                $sql->execute();
+    }
+        
+    }
 }
