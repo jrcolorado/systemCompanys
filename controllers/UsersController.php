@@ -28,6 +28,7 @@ class UsersController extends Controller{
         if($u->hasPermission('users_view')){
             
             $data['users_list'] = $u->getList($u->getCompany());
+            $data['edit_permission'] = $u->hasPermission('Users_edit');
             
             $this->loadTemplate('Users', $data);
         } else {

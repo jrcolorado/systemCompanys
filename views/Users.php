@@ -8,12 +8,18 @@
             </tr>
             <?php foreach ($users_list as $us):?>
             <tr>
-                <td width="55%"><?php echo $us['email'];?></td>
+                <td width="45%"><?php echo $us['email'];?></td>
                 <td width="25%"><?php echo $us['name'];?></td>
-                <td width="18%"><div class="button button_small_edit"><a href="<?php echo BASE_URL; ?>/Users/edit/<?php echo $us['id']?>">Editar</a></div>
-                <div class="button button_small_delet"><a href="<?php echo BASE_URL; ?>/Users/delete/<?php echo $us['id']?>" onclick="return confirm('Deseja exclui o Usuário?')">Excluir</a></div></td>
-           
-            </tr>
+                <td width="30%">
+                     <?php if ($edit_permission): ?>
+                            <div class="button button_small_edit"><a href="<?php echo BASE_URL; ?>/Users/edit/<?php echo $us['id'] ?>">Editar</a></div>
+                            <div class="button button_small_delet"><a href="<?php echo BASE_URL; ?>/Users/delete/<?php echo $us['id'] ?>" onclick="return confirm('Deseja exclui o Usuário?')">Excluir</a></div>
+                            <div class="button button_small_edit"><a href="<?php echo BASE_URL; ?>/Users/view/<?php echo $us['id']; ?>">Visualizar</a></div></td>
+                <?php else: ?>
+                    <div class="button button_small_edit"><a href="<?php echo BASE_URL; ?>/Users/view/<?php echo $us['id']; ?>">Visualizar</a></div>
+                <?php endif; ?>
+             </td>
+         </tr>
             <?php endforeach;?>
           
         </table>

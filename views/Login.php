@@ -15,7 +15,7 @@ ini_set('display_errors', 'On');
         <div class="loginarea">
             <form method="POST">
                 E-mail:
-                <input type="email" name="email" placeholder="Digite seu email"/>
+                <input type="email" name="email" placeholder="Digite seu email" autofocus/>
                 Senha:
                 <input type="password" name="password" placeholder="Digite sua senha"/>
                 <input type="submit" value="Entrar"/><br/>
