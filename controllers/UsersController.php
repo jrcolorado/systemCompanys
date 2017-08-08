@@ -97,6 +97,32 @@ class UsersController extends Controller{
         
     }
     
+     public function view($id){
+        
+          $data = array();
+        $u = new Users();
+        $u->setLoggedUser();
+        $company = new Companies($u->getCompany());
+        $data['company_name'] = $company->getName();
+        $data['user_email'] = $u->getEmail();
+
+        if ($u->hasPermission('users_view')) {
+            $p = new Permissions();
+            if (isset($_POST['group']) && !empty($_POST['group'])) {
+               $group = addslashes($_POST['group']);
+
+                header("Location: " . BASE_URL . "/Users");
+                
+            }
+            $data['user_info'] = $u->getInfo($id, $u->getCompany()) ;
+            $data['group_list'] = $p->getGroupList($u->getCompany());
+            $this->loadTemplate('Users_view', $data);
+        } else {
+            header("Location: " . BASE_URL);
+        }
+        
+        
+    }
     
     
      public function delete($id){
