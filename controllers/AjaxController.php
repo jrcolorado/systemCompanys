@@ -18,6 +18,32 @@ class AjaxController extends Controller{
     
     public function index(){}
     
+    
+    
+    public function search_inventory(){
+         $data = array();
+        $u = new Users();
+        $u->setLoggedUser();
+        $i = new Inventory();
+        
+        if(isset($_GET['q']) && !empty($_GET['q'])){
+            $q = addslashes($_GET['q']);
+            
+            $inventory = $i->searchInventoryByName($q, $u->getCompany());
+            
+            foreach ($inventory as $citem){
+                $data[] = Array(
+                    'name'=> $citem['name'],
+                    'link'=> BASE_URL.'/Inventory/view/'.$citem['id'] 
+                );
+            }
+        }
+        echo json_encode($data);
+        
+    }
+    
+    
+    
     public function search_clients(){
          $data = array();
         $u = new Users();

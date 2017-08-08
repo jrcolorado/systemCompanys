@@ -83,6 +83,9 @@ body {
     background-image:url('../images/avatar.png');
 }
 .menuarea li:nth-child(5){
+    background-image:url('../images/avatar.png');
+}
+.menuarea li:nth-child(6){
     background-image:url('../images/logout.png');
 }
 .area{
