@@ -60,13 +60,16 @@ class InventoryController extends Controller{
             $i = new Inventory();
          if (isset($_POST['name']) && !empty($_POST['name'])) {
              
-             $name = strtoupper(addslashes($_POST['name']));
-             $price = addslashes($_POST['price']);
-             $quant = addslashes($_POST['quant']);
-             $min_quant = addslashes($_POST['min_quant']);
+            $name = strtoupper(addslashes($_POST['name']));
+            $price = addslashes($_POST['price']);
+            $quant = addslashes($_POST['quant']);
+            $min_quant = addslashes($_POST['min_quant']);
+           // $price = str_replace('.', '', $price);
+           // $price = str_replace(',', '.', $price);
+            //  $price = number_format($price,2);
 
 
-                $i->add($u->getCompany(), $name, $price, $quant, $min_quant);
+                $i->add($u->getCompany(),$u->getId(), $name, $price, $quant, $min_quant);
                 header("Location: " . BASE_URL . "/Inventory");
             }
 
@@ -88,16 +91,20 @@ class InventoryController extends Controller{
        
         if($u->hasPermission('inventory_edit')){
             
-            $i = new Inventory();
+         $i = new Inventory();
          if (isset($_POST['name']) && !empty($_POST['name'])) {
              
              $name = strtoupper(addslashes($_POST['name']));
              $price = addslashes($_POST['price']);
              $quant = addslashes($_POST['quant']);
              $min_quant = addslashes($_POST['min_quant']);
+             
+             $price = str_replace('.','',$price);
+             $price = str_replace(',','.',$price);
+           //  $price = number_format($price,2);
+                   
 
-
-                $i->edit($id, $u->getCompany(), $name, $price, $quant, $min_quant);
+            $i->edit($id, $u->getCompany(),$u->getId(), $name, $price, $quant, $min_quant);
                 header("Location: " . BASE_URL . "/Inventory");
             }
             

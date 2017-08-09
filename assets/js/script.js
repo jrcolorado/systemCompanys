@@ -15,7 +15,7 @@ $(function() {
    
    $('#busca').on('focus', function(){
        $(this).animate({
-           width: '250px'
+           width: '350px'
        },'fast');
        
    });

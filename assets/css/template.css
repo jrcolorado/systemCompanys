@@ -245,7 +245,7 @@ button,
  }
 
  .searchresults{
-     width: 248px;
+     width:450px;
      min-height: 200px;
      background-color: #FFF;
      position: absolute;
@@ -266,5 +266,7 @@ button,
   .si:hover{
       background-color: #EEE;
   }
-
+  .requerid{
+      background-color: #eee;
+  }
 

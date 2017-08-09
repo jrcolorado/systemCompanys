@@ -32,5 +32,5 @@
         <div class="area">
             <?php $this->loadViewInTemplate($viewName, $viewData); ?>
         </div>
-    </body>
+ </body>
 </html>
