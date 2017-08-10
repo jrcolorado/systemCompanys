@@ -48,7 +48,7 @@ class Clients extends model{
 
     
 
-        public function add($id_company, $name, $email, $phone, $addres, $addres_number1, $addres_number2,$addres_neighb,$addres_city, $addres_state, $addres_country,$addres_zipcode, $stars, $internal_obs){
+        public function add($id_company, $name, $email ='', $phone ='', $addres ='', $addres_number1 ='', $addres_number2 ='',$addres_neighb ='',$addres_city ='', $addres_state ='', $addres_country ='',$addres_zipcode ='', $stars ='3', $internal_obs =''){
         
         $sql= $this->db->prepare("INSERT INTO clients SET id_company = :id_company, name = :name, email = :email, phone = :phone, addres = :addres, addres_number1 = :addres_number1, addres_number2 = :addres_number2, addres_neighb = :addres_neighb , addres_city = :addres_city,addres_state = :addres_state, addres_country = :addres_country, addres_zipcode = :addres_zipcode, stars = :stars, internal_obs = :internal_obs");
        
@@ -67,6 +67,8 @@ class Clients extends model{
         $sql->bindValue(":stars",$stars );
         $sql->bindValue(":internal_obs",$internal_obs);
         $sql->execute();
+        
+        return $this->db->lastInsertId();
         
     }
           

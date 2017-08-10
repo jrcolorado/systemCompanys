@@ -1,6 +1,6 @@
 <?php
 /**
- * Description of AjaxController
+ * Description of InventoryController
  *
  * @author joaoromario
  */
@@ -64,8 +64,8 @@ class InventoryController extends Controller{
             $price = addslashes($_POST['price']);
             $quant = addslashes($_POST['quant']);
             $min_quant = addslashes($_POST['min_quant']);
-           // $price = str_replace('.', '', $price);
-           // $price = str_replace(',', '.', $price);
+           $price = str_replace('.', '', $price);
+           $price = str_replace(',', '.', $price);
             //  $price = number_format($price,2);
 
 

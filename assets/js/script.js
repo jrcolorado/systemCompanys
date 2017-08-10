@@ -64,5 +64,40 @@ $(function() {
            });}
        
    });
+   
+   
+   
+   $('#busca').on('keyup', function(){
+         var datatype = $(this).attr('data-type');
+         var q = $(this).val();
+         
+         if(datatype != ''){
+             $.ajax({
+                 url:BASE_URL+'/Ajax/'+datatype,
+                 type: 'GET',
+                 data:{q:q},
+                 dataType:'json',
+                 success:function(json){
+                     if($('.searchresults').length == 0){
+                         $('#busca').after('<div class="searchresults"></div>');
+                        }
+                    $('.searchresults').css('left', $('#busca').offset().left+'px');
+                    $('.searchresults').css('top', $('#busca').offset().top+$('#busca').height()+3+'px');
+                    
+                    var html='';
+                    
+                    for(var i in json){
+                        html += '<div class="si"><a href="'+json[i].link+'">'+json[i].name+'</a></div>';
+                    }
+                    
+                    
+                    $('.searchresults').html(html);
+                    $('.searchresults').show();
+                     
+                 }
+                    
+           });}
+       
+   });
   
 });

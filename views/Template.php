@@ -18,6 +18,7 @@
                 <li><a href="<?php echo BASE_URL;?>/Users">Usuários</a></li>
                 <li><a href="<?php echo BASE_URL;?>/Clients">Clientes</a></li>
                 <li><a href="<?php echo BASE_URL;?>/Inventory">Estoque</a></li>
+                <li><a href="<?php echo BASE_URL;?>/Sales">Vendas</a></li>
                 <li><a href="<?php echo BASE_URL.'/Login/logout';?>">Sair</a></li>
             </ul>
         </div> 

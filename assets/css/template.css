@@ -86,6 +86,9 @@ body {
     background-image:url('../images/avatar.png');
 }
 .menuarea li:nth-child(6){
+    background-image:url('../images/avatar.png');
+}
+.menuarea li:nth-child(7){
     background-image:url('../images/logout.png');
 }
 .area{
@@ -245,7 +248,7 @@ button,
  }
 
  .searchresults{
-     width:450px;
+     width:550px;
      min-height: 200px;
      background-color: #FFF;
      position: absolute;
@@ -270,3 +273,16 @@ button,
       background-color: #eee;
   }
 
+  #client_name{
+      width: 350px;
+      float: left;
+  }
+ .client_add_button{
+      font-size: 17;
+      height: 35px;
+      float: left;
+      display: block;
+      line-height: 26px;
+      margin-top: 1px;
+      margin-left: 10px;
+  }
