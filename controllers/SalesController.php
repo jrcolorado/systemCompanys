@@ -24,6 +24,12 @@ class SalesController extends Controller{
         $company = new Companies($u->getCompany());
         $data['company_name'] = $company->getName();
         $data['user_email'] = $u->getEmail(); 
+        
+        $data['status_desc'] = array(
+            '0'=>'Aguardando Pgto.',
+            '1'=>'Pago',
+            '2'=>'Cancelada',
+        );
        
         if($u->hasPermission('sales_view')){
             
@@ -49,13 +55,18 @@ class SalesController extends Controller{
         $data['company_name'] = $company->getName();
         $data['user_email'] = $u->getEmail(); 
        
-        if($u->hasPermission('sales_view')){
+        if($u->hasPermission('sales_edit')){
             $s = new Sales();
             
             if(isset($_POST['client_id']) && !empty($_POST['client_id'])){
-                $client_id= addslashes($_POST['client_id']);
+                $id_clients= addslashes($_POST['client_id']);
                 $status = addslashes($_POST['status']);
-                $total_price = addslashes($_POST['total_price']);
+                $quant = $_POST['quant'];
+                
+           
+            
+               $s->addSale($u->getCompany(), $id_clients, $u->getId(), $quant, $status);
+               header("Location: " . BASE_URL . "/Sales");
             }
             
                      
@@ -66,7 +77,41 @@ class SalesController extends Controller{
         } 
         
         
-    }
+    }// fim do metodo add sales
+    
+    
+    public function edit($id){
+        
+        $data = array();
+        $u = new Users();
+        $u->setLoggedUser();
+        $company = new Companies($u->getCompany());
+        $data['company_name'] = $company->getName();
+        $data['user_email'] = $u->getEmail(); 
+       
+        if($u->hasPermission('sales_view')){
+            $s = new Sales();
+            
+            if(isset($_POST['client_id']) && !empty($_POST['client_id'])){
+                $id_clients= addslashes($_POST['client_id']);
+                $status = addslashes($_POST['status']);
+                $quant = $_POST['quant'];
+         
+                $s->addSale($u->getCompany(), $id_clients, $u->getId(), $quant, $status);
+               header("Location: " . BASE_URL . "/Sales");
+            }
+            
+            $data['sales_info']= $s->getInfo($id, $u->getCompany());
+            $this->loadTemplate("Sales_edit",$data);
+            
+        } else {
+            header("Location: ".BASE_URL);
+        } 
+        
+        
+    }// fim do metodo edit sales
+    
+    
     
     
     

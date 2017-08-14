@@ -68,6 +68,23 @@ class AjaxController extends Controller{
     }
     
     
+    public function search_products(){
+        
+         $data = array();
+        $u = new Users();
+        $u->setLoggedUser();
+        $i = new Inventory();
+        
+        if(isset($_GET['q']) && !empty($_GET['q'])){
+            $q = addslashes($_GET['q']);
+            
+            $data = $i->searchInventoryByName($q, $u->getCompany());
+         }
+        echo json_encode($data);
+        
+    }
+
+
     public function add_client(){
          $data = array();
         $u = new Users();

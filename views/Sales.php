@@ -12,9 +12,17 @@
     <?php foreach ($sales_list as $sale_item):?>
     <tr>
         <td><?php echo $sale_item['name'];?></td>
-        <td><?php echo date('d,m,y', strtotime($sale_item['date_sale']));?></td>
-        <td><?php echo $sale_item['status'];?></td>
+        <td width="35"><?php echo date('d/m/Y', strtotime($sale_item['date_sale']));?></td>
+        <td><?php 
+          if($status_desc[$sale_item['status']]== 'Cancelada'){
+                        echo '<span style="color:red">'.($status_desc[$sale_item['status']]).'</span>';
+                    }else{echo $status_desc[$sale_item['status']]; }
+        ?></td>
         <td>R$<?php echo number_format($sale_item['total_price'],2,',','.');?></td>
+         <td style="text-align: center" >
+        <div class="button button_small_edit"><a href="<?php echo BASE_URL; ?>/Sales/edit/<?php echo $sale_item['id'] ?>">Editar</a></div>
+        </td>
     </tr>
+   
     <?php endforeach;?>
 </table>
