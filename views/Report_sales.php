@@ -9,9 +9,9 @@
         
     <div class="report-grid-4">
         Período:<br/>
-        <input type="date" name="periodo1"/><br/>
+        <input type="date" name="period1"/><br/>
         até<br/>
-        <input type="date" name="periodo2"/>
+        <input type="date" name="period2"/>
     </div>
     <div class="report-grid-4">
         Status das Vendas

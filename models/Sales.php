@@ -99,5 +99,28 @@ class Sales extends model{
         
     }
     
+    public function getSalesFiltered($client_name, $period1, $period2,$status, $order, $id_company){
+          $array = array();
+          
+          $sql = "SELECT clients.name, sales.date_sale, sales.status, sales.total_price FROM sales LEFT JOIN clients ON clients.id = sales.id_client WHERE";
+          
+          $where = array();
+          $where[] = "sales.id_company = :id_company";
+          
+          if(!empty($client_name)){
+              $where[]= "clients.name = :client_name";
+          }
+          if(!empty($period1) && !empty($period2)){
+              $where[]= "sales.date_sale BETWEEN :period1 AND period2";
+          }
+          if($status != ''){
+              $where[] = "sales.status = :status";
+          }
+          
+          
+         return $array; 
+    }
+
+    
     
 }
