@@ -22,7 +22,7 @@ class Sales extends model{
     public function getInfo($id, $id_company){
         $array = array();
         
-        $sql = $this->db->prepare("SELECT *, (SELECT clients.name FROM clients WHERE clients.id = sales.id_clients) as client_name FROM sales WHERE id =:id AND id_company =:id_company");
+        $sql = $this->db->prepare("SELECT *, (select clients.name from clients where clients.id = sales.id_clients) as client_name FROM sales WHERE id =:id AND id_company = :id_company");
         $sql->bindValue(":id", $id);
         $sql->bindValue(":id_company", $id_company);
         $sql->execute();
@@ -32,7 +32,7 @@ class Sales extends model{
             
         }
         
-        $sql = $this->db->prepare("SELECT sales_products.quant, sales_products.sales_price, inventory.name FROM sales_products LEFT JOIN inventory.id = sales_products.id_product WHERE sales_products.id_sale = :id_sale AND sales_products.id_company =:id_company");
+        $sql = $this->db->prepare("SELECT sales_products.quant, sales_products.sale_price, inventory.name FROM sales_products LEFT JOIN inventory ON inventory.id = sales_products.id_product WHERE sales_products.id_sale = :id_sale AND sales_products.id_company = :id_company");
         $sql->bindValue(":id_company", $id_company);
         $sql->bindValue(":id_sale", $id);
         $sql->execute();
@@ -89,7 +89,15 @@ class Sales extends model{
         $sql->execute();
     }// fim do metodo 
     
-    
+        public function changeStatus($status, $id, $id_company){
+            
+            $sql = $this->db->prepare("UPDATE sales SET status = :status WHERE id =:id AND id_company =:id_company");
+            $sql->bindValue(":id",$id);
+            $sql->bindValue(":status",$status);
+            $sql->bindValue(":id_company",$id_company);
+            $sql->execute();
+        
+    }
     
     
 }

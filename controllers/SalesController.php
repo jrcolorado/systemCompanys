@@ -21,14 +21,15 @@ class SalesController extends Controller{
         $data = array();
         $u = new Users();
         $u->setLoggedUser();
+        $i = new Inventory();
         $company = new Companies($u->getCompany());
         $data['company_name'] = $company->getName();
         $data['user_email'] = $u->getEmail(); 
         
         $data['status_desc'] = array(
-            '0'=>'Aguardando Pgto.',
-            '1'=>'Pago',
-            '2'=>'Cancelada',
+            '1'=>'Aguardando Pgto.',
+            '2'=>'Pago',
+            '3'=>'Cancelada',
         );
        
         if($u->hasPermission('sales_view')){
@@ -36,6 +37,7 @@ class SalesController extends Controller{
             $s = new Sales();
             $offset= 0;
             $data['sales_list']= $s->getList($offset, $u->getCompany());
+          //  $data['sales_info']= $i->getInfo($id, $u->getCompany());
             
             $this->loadTemplate("Sales",$data);
             
@@ -88,20 +90,27 @@ class SalesController extends Controller{
         $company = new Companies($u->getCompany());
         $data['company_name'] = $company->getName();
         $data['user_email'] = $u->getEmail(); 
+         $data['status_desc'] = array(
+            '1'=>'Aguardando Pgto.',
+            '2'=>'Pago',
+            '3'=>'Cancelada',
+        );
        
         if($u->hasPermission('sales_view')){
             $s = new Sales();
             
-            if(isset($_POST['client_id']) && !empty($_POST['client_id'])){
-                $id_clients= addslashes($_POST['client_id']);
-                $status = addslashes($_POST['status']);
-                $quant = $_POST['quant'];
-         
-                $s->addSale($u->getCompany(), $id_clients, $u->getId(), $quant, $status);
+            $data['permission_edit'] = $u->hasPermission('sales_edit');
+            
+            if(isset($_POST['status']) && !empty($_POST['status']) && $data['permission_edit']){
+                $status= addslashes($_POST['status']);
+                              
+                $s->changeStatus($status, $id, $u->getCompany());
+                
                header("Location: " . BASE_URL . "/Sales");
             }
             
             $data['sales_info']= $s->getInfo($id, $u->getCompany());
+            
             $this->loadTemplate("Sales_edit",$data);
             
         } else {

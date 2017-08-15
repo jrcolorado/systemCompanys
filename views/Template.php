@@ -12,15 +12,17 @@
             <div class="company_name"><?php echo $viewData['company_name']; ?>
             </div>
              <div class="menuarea">
-            <ul>
-                <li><a href="<?php echo BASE_URL;?>">Home</a></li>
-                <li><a href="<?php echo BASE_URL;?>/Permissions">Permissões</a></li>
-                <li><a href="<?php echo BASE_URL;?>/Users">Usuários</a></li>
-                <li><a href="<?php echo BASE_URL;?>/Clients">Clientes</a></li>
-                <li><a href="<?php echo BASE_URL;?>/Inventory">Estoque</a></li>
-                <li><a href="<?php echo BASE_URL;?>/Sales">Vendas</a></li>
-                <li><a href="<?php echo BASE_URL.'/Login/logout';?>">Sair</a></li>
-            </ul>
+                 <ul>
+                     <li><a href="<?php echo BASE_URL; ?>">Home</a></li>
+                     <li><a href="<?php echo BASE_URL; ?>/Permissions">Permissões</a></li>
+                     <li><a href="<?php echo BASE_URL; ?>/Users">Usuários</a></li>
+                     <li><a href="<?php echo BASE_URL; ?>/Clients">Clientes</a></li>
+                     <li><a href="<?php echo BASE_URL; ?>/Inventory">Estoque</a></li>
+                     <li><a href="<?php echo BASE_URL; ?>/Sales">Vendas</a></li>
+                     <li><a href="<?php echo BASE_URL; ?>/Sales">Compras</a></li>
+                     <li><a href="<?php echo BASE_URL; ?>/Report">Relatórios</a></li>
+                     <li><a href="<?php echo BASE_URL . '/Login/logout'; ?>">Sair</a></li>
+                 </ul>
         </div> 
         </div>
       
@@ -33,5 +35,7 @@
         <div class="area">
             <?php $this->loadViewInTemplate($viewName, $viewData); ?>
         </div>
+          
+      
  </body>
 </html>
