@@ -8,9 +8,9 @@
        
     <label for="status">Status da Venda</label><br/>
     <select name="status" id="status">
-        <option value="0">Aguardando Pgto.</option>
-        <option value="1">Pago</option>
-        <option value="2">Cancelado</option>
+        <option value="1">Aguardando Pgto.</option>
+        <option value="2">Pago</option>
+        <option value="3">Cancelado</option>
     </select><br/><br/>
   
     

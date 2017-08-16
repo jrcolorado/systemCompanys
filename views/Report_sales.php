@@ -3,62 +3,33 @@
 <form method="GET" onsubmit="return openPopup(this)">
     <div class="report-grid-4">
         Nome do cliente<br/>
-        <input type="text" name="client_name"/>
-        
-    </div>
-        
-    <div class="report-grid-4">
+        <input type="text" name="client_name" id="client_name" data-type="search_clients"/><br/><br/>
+       
         Período:<br/>
-        <input type="date" name="period1"/><br/>
+        <input type="text" name="period1"/><br/>
         até<br/>
-        <input type="date" name="period2"/>
-    </div>
-    <div class="report-grid-4">
+        <input type="text" name="period2"/><br/><br/>
+        
         Status das Vendas
         <select name="status">
-            <option name="">Todos os Status</option>
-            <?php foreach ($status_desc as $statusKey => $statusValue):?>
-            <option name="<?php echo $statusKey?>"><?php echo $statusValue?></option>
-            <?php endforeach;?>
-        </select>
-    </div>
-    <div class="report-grid-4">
+            <option value="">Todos os Status</option>
+            <?php foreach ($status_desc as $statusKey => $statusValue): ?>
+                <option value="<?php echo $statusKey ?>"><?php echo $statusValue ?></option>
+            <?php endforeach; ?>
+        </select><br/><br/>
+        
         Ordenação:
         <select name="order">
-            <option name="date_desc">Mais recentes</option>
-            <option name="date_asc">Mais antigas</option>
-            <option name="status">Status de Venda</option>
-        </select>
-    </div>
-    
-    <div style="clear:both"></div>
-    <div style="text-align: center">
-        <input type="submit" value="Gerar Relatório"/>
-    </div>
+            <option value="date_desc">Mais recentes</option>
+            <option value="date_asc">Mais antigas</option>
+            <option value="status">Status de Venda</option>
+        </select><br/><br/>
+       
+        <input type="submit" value="Gerar Relatório"/><br/><br/><br/>
         
-        
-</form>
+ </form>
 
 
+<script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/jquery.mask.min.js"></script>
+<script type="text/javascript" src="<?php echo BASE_URL; ?>/assets/js/script_report_sales.js"></script>
 
-
-  <!-- Bootstrap core JavaScript
-<form>
-    <div class="input-group date" data-provide="datepicker">
-    <input type="text" class="form-control">
-    <div class="input-group-addon">
-        <span class="glyphicon glyphicon-th"></span>
-    </div>
-</div>
-</form>
-
-  <!-- Bootstrap core JavaScript
-      ================================================== -->
-      <!-- Placed at the end of the document so the pages load faster -->
-      
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/report_sales.js"></script>          
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/jquery-3.0.0.min.js"></script>
-<script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/bootstrap.js"></script>
- <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/bootstrap.min.js"></script>  
-
-    

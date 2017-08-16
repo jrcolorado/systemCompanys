@@ -12,7 +12,7 @@ $('input[name=addres_zipcode]').on('blur', function(){
                 $('input[name=addres_city]').val(json.cidade);
                 $('input[name=addres_state]').val(json.estado);
                 $('input[name=addres_country]').val("BRASIL");
-                 $('input[name=addres_number1]').focus();
+                $('input[name=addres_number1]').focus();
             }
             
         }

@@ -80,21 +80,33 @@ class ReportController extends Controller{
         
              
         if($u->hasPermission('report_view')){
-            
+            //date('d/m/Y', strtotime($data_sql));
             $client_name = addslashes($_GET['client_name']);
-            $period1 = addslashes($_GET['period1']);
-            $period2 = addslashes($_GET['period2']);
+            $periodi = addslashes($_GET['period1']);
+            $periodf = addslashes($_GET['period2']);
             $status = addslashes($_GET['status']);
             $order = addslashes($_GET['order']);
-            
+                              
             $s = new Sales();
-            
-            $data['sales_list']= $s->getSalesFiltered($client_name, $period1, $period2,$status, $order, $u->getCompany());
 
-            //   $this->loadTemplate("Report_sales",$data);
-        // não carrega tamplate e sim HTML em uma view
+            $period1 = $s->date_converter($periodi);
+            $period2 = $s->date_converter($periodf);
+
+       ///  echo $period1." A ".$period2;
+        // exit();
+
+            $data['sales_list']= $s->getSalesFiltered($client_name, $period1, $period2,$status, $order, $u->getCompany());
+            $data['filters']= $_GET;
             
+            $this->loadLibrary('mpdf60/mpdf');
+            ob_start();//buffer para carregar dados impresso pela View
             $this->loadView("Report_sales_pdf", $data);
+            $html = ob_get_contents();//carrega os dados do buffer na variavel $html
+            ob_end_clean(); // limpa a memoria do buffer
+            
+            $mpdf = new mPDF();
+            $mpdf->WriteHTML($html);
+            $mpdf->Output();
         } else {
             header("Location: ".BASE_URL);
         } 

@@ -99,26 +99,79 @@ class Sales extends model{
         
     }
     
+    
+    public function date_converter($_date = null) {
+        $format = '/^([0-9]{2})\/([0-9]{2})\/([0-9]{4})$/';
+        if ($_date != null && preg_match($format, $_date, $partes)) {
+            return $partes[3] . '-' . $partes[2] . '-' . $partes[1];
+        }
+        return false;
+    }
+
     public function getSalesFiltered($client_name, $period1, $period2,$status, $order, $id_company){
           $array = array();
           
-          $sql = "SELECT clients.name, sales.date_sale, sales.status, sales.total_price FROM sales LEFT JOIN clients ON clients.id = sales.id_client WHERE";
+          /// echo $period1." AND ".$period2;
+          //  exit();
+                
+          $sql = "SELECT clients.name, sales.date_sale, sales.status, sales.total_price FROM sales LEFT JOIN clients ON clients.id = sales.id_clients WHERE";
           
           $where = array();
-          $where[] = "sales.id_company = :id_company";
+          $where[] = " sales.id_company = :id_company";
           
           if(!empty($client_name)){
               $where[]= "clients.name = :client_name";
           }
           if(!empty($period1) && !empty($period2)){
-              $where[]= "sales.date_sale BETWEEN :period1 AND period2";
+              $where[]= "sales.date_sale BETWEEN :period1 AND :period2";
           }
           if($status != ''){
               $where[] = "sales.status = :status";
           }
           
+          $sql .= implode(' AND ', $where);
           
-         return $array; 
+          switch ($order){
+              case 'date_desc':
+              default:
+                  $sql .= " ORDER BY sales.date_sale DESC";
+                  break;
+               case 'date_asc':
+                  $sql .= " ORDER BY sales.date_sale ASC";
+                  break;
+              case 'status':
+                  $sql .= " ORDER BY sales.status ASC";
+                  break;       
+              
+              
+          }
+          
+        //  echo $sql;
+       //   exit();
+          
+          
+       $sql = $this->db->prepare($sql);
+        $sql->bindValue(":id_company", $id_company);
+
+        if (!empty($client_name)) {
+            $sql->bindValue(":client_name", $client_name);
+        }
+        if (!empty($period1) && !empty($period2)) { 
+            $sql->bindValue(":period1", $period1);
+            $sql->bindValue(":period2", $period2);
+        }
+        if ($status != '') {
+            $sql->bindValue(":status", $status);
+        }
+
+        $sql->execute();
+
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+        // print_r($array);
+
+        return $array;
     }
 
     
