@@ -6,3 +6,9 @@
     Relatório de Vendas
     </a>
 </div>
+<div class="report_item">
+    <a href="<?php echo BASE_URL;?>/Report/inventory">
+    <img src="<?php echo BASE_URL;?>/assets/images/inventory.jpg" border="0" height="80"><br/><br/>
+    Relatório de Estoque
+    </a>
+</div>

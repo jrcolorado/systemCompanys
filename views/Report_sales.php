@@ -26,7 +26,7 @@
         </select><br/><br/>
        
         <input type="submit" value="Gerar Relatório"/><br/><br/><br/>
-        
+    </div>
  </form>
 
 
