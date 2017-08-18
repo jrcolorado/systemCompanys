@@ -323,3 +323,71 @@ button,
       float: left;
       text-align: center;
   }
+  .db_row{
+      clear: both;
+  }
+  .grid-1{
+      width: 33%;
+      float: left;
+  }
+  .grid-2{
+      width: 66%;
+     float: left;
+  }
+  .grid-3{
+      width: 100%;
+      float: left;
+  }
+  .db-grid-area{
+      margin-top: 5px;
+      height:90px;
+      background-color: #2EFEF7;
+      margin-left: 10px;
+      margin-right: 10px;
+      padding-left: 10px;
+  }
+  .row1 .grid-1:nth-child(1) .db-grid-area{
+      margin-left: 0;
+  }
+  
+  .row1 .grid-1:nth-child(3) .db-grid-area{
+      margin-right: 0;
+  }
+  
+  .rom2 .grid-2 .db-info{
+      margin-left: 0;
+    
+    
+  }
+ .rom2 .grid-1 .db-info{
+    
+      margin-right: 0;
+       
+  }
+  .db-grid-area-count{
+      font-size: 26px;
+      padding-top: 24px;
+  }
+  
+  .db-grid-area-legend{
+      font-size: 14px;
+  }
+  .db-info{
+      margin-top: 20px;
+      border:1px solid #CCC;
+      border-radius: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+      padding-left: 10px;
+  }
+  .db-info-title{
+      height: 40px;
+      line-height: 20px;
+      font-size: 17px;
+      padding-left: 10px;
+      border-bottom: 1px solid #CCC;
+         background-color: #FFF;
+  }
+  .db-info-body{
+     padding: 10px;
+  }

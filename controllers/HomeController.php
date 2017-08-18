@@ -20,10 +20,20 @@ class HomeController extends Controller{
         $u = new Users();
         $u->setLoggedUser();
         $company = new Companies($u->getCompany());
+        $s = new Sales();
         $data['company_name'] = $company->getName();
         $data['user_email'] = $u->getEmail(); 
         
-                
+       // $data['products_sold']= 24;
+        $data['revenue']= $s->getTotalRevenue(date('y-m-d', strtotime('-30 days')), date('y-m-d'), $u->getCompany());
+        $data['expenses']= $s->getTotalExpenses(date('y-m-d', strtotime('-30 days')), date('y-m-d'), $u->getCompany());      
+        $data['products_sold']= $s->getTotalproducts_sold(date('y-m-d', strtotime('-30 days')), date('y-m-d'), $u->getCompany());      
+        
+        $data['days_list']= array();
+        for($q=30; $q>0; $q--){
+            $data['days_list'][]= date('d/m', strtotime('-'.$q.'days'));
+            
+        }
         $this->loadTemplate('Home', $data);
          
         
