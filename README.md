@@ -1,1 +1,1 @@
-# PhpChat
+# PhpCompany
