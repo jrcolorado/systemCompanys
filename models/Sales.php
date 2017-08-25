@@ -195,15 +195,13 @@ class Sales extends model{
     
     public function getRevenueList($period1, $period2, $id_company){
         $array = array();
-        
         $currentDay = $period1;
-        
         while ($period2 != $currentDay){
-            $array[$currentDay]=0;
+            $array[$currentDay]= 0;
             $currentDay = date('y-m-d', strtotime('+1 day', strtotime($currentDay)));
         }
         
-        $sql = "SELECT date_sale, SUM(total_price) as total FROM sales WHERE id_company = :id_company AND date_sale BETWEEN :period1 AND :period2 GROUP BY DATE_FORMAT(date_sale, '%y-%m-%y')";
+        $sql = "SELECT DATE_FORMAT(date_sale, '%y-%m-%d') as date_sale, SUM(total_price) as total FROM sales WHERE id_company = :id_company AND date_sale BETWEEN :period1 AND :period2 GROUP BY DATE_FORMAT(date_sale, '%y-%m-%d')";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":period1", $period1);
         $sql->bindValue(":period2", $period2);
@@ -213,15 +211,83 @@ class Sales extends model{
        if($sql->rowCount()>0){
            $rows = $sql->fetchAll();
            
+                
            foreach ($rows as $sale_item){
-               $array[$sale_item['date_sale']] = $sale_item['total'];
+            
+              $array[$sale_item['date_sale']] = $sale_item['total'];
+             
            }
            
        }
-
-        return $array;
+      return $array;
         
     }
+    
+    
+    public function getQtdStatusList($period1, $period2, $id_company){
+         $array = array();
+       
+            $sql = "SELECT DATE_FORMAT(date_sale, '%y-%m-%d') as date_sale, SUM(total_price) as total FROM sales WHERE id_company = :id_company AND date_sale BETWEEN :period1 AND :period2 GROUP BY DATE_FORMAT(date_sale, '%y-%m-%d')";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":period1", $period1);
+        $sql->bindValue(":period2", $period2);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+       
+       if($sql->rowCount()>0){
+           $rows = $sql->fetchAll();
+           
+                
+           foreach ($rows as $sale_item){
+            
+              $array[$sale_item['date_sale']] = $sale_item['total'];
+             
+           }
+           
+       }
+      
+      return $array;
+        
+        
+        
+    }
+   
+    
+     public function getExpensesList($period1, $period2, $id_company){
+         $array = array();
+        $currentDay = $period1;
+        while ($period2 != $currentDay){
+            $array[$currentDay]= 0;
+            $currentDay = date('y-m-d', strtotime('+1 day', strtotime($currentDay)));
+        }
+        
+        $sql = "SELECT DATE_FORMAT(date_purches, '%y-%m-%d') as date_purches, SUM(total_price) as total FROM purchases WHERE id_company = :id_company AND date_purches BETWEEN :period1 AND :period2 GROUP BY DATE_FORMAT(date_purches, '%y-%m-%d')";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(":period1", $period1);
+        $sql->bindValue(":period2", $period2);
+        $sql->bindValue(":id_company", $id_company);
+        $sql->execute();
+       
+       if($sql->rowCount()>0){
+           $rows = $sql->fetchAll();
+           
+         //  print_r($rows);
+         //  exit();
+           
+           foreach ($rows as $sale_item){
+            
+              $array[$sale_item['date_purches']] = $sale_item['total'];
+             
+           }
+           
+       }
+      return $array;
+        
+        
+        
+    }
+   
+    
 
     public function getTotalExpenses($period1, $period2, $id_company){
         $float =0;

@@ -30,10 +30,15 @@ class HomeController extends Controller{
         $data['products_sold']= $s->getTotalproducts_sold(date('y-m-d', strtotime('-30 days')), date('y-m-d'), $u->getCompany());      
         
         $data['days_list']= array();
-        for($q=30; $q>0; $q--){
+        //cria um for ao contrario, para pegar os ultimos 30 dias 
+        for($q=30; $q>-1; $q--){
             $data['days_list'][]= date('d/m', strtotime('-'.$q.'days'));
             
         }
+        $data['revenue_list']= $s->getRevenueList(date('y-m-d', strtotime('-30 days')), date('y-m-d'), $u->getCompany()); 
+        $data['expenses_list']= $s->getExpensesList(date('y-m-d', strtotime('-30 days')), date('y-m-d'), $u->getCompany()); 
+        $data['status_list']= $s->getQtdStatusList(date('y-m-d', strtotime('-30 days')), date('y-m-d'), $u->getCompany());    
+        
         $this->loadTemplate('Home', $data);
          
         
