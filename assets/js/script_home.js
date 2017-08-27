@@ -26,10 +26,10 @@ var rel1 = new Chart(document.getElementById("rel1"),{
 var rel2 = new Chart(document.getElementById("rel2"),{
     type: 'pie',
     data: {
-        labels:['Pago', 'Cancelada','Aguardando pgto.'],
+        labels:status_name_list,
         datasets:[{              
-            data:[4,2,6],
-                backgroundColor:['#FFce56','#FF0000','#36A2EB']
+            data:status_list,
+                backgroundColor:['#FFce56','#36A2EB','#FF0000']
             }]
     }
        

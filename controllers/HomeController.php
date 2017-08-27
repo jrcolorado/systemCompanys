@@ -24,6 +24,12 @@ class HomeController extends Controller{
         $data['company_name'] = $company->getName();
         $data['user_email'] = $u->getEmail(); 
         
+         $data['status_desc'] = array(
+            '1'=>'Aguardando Pgto.',
+            '2'=>'Pago',
+            '3'=>'Cancelada',
+        );
+        
        // $data['products_sold']= 24;
         $data['revenue']= $s->getTotalRevenue(date('y-m-d', strtotime('-30 days')), date('y-m-d'), $u->getCompany());
         $data['expenses']= $s->getTotalExpenses(date('y-m-d', strtotime('-30 days')), date('y-m-d'), $u->getCompany());      

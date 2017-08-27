@@ -225,9 +225,9 @@ class Sales extends model{
     
     
     public function getQtdStatusList($period1, $period2, $id_company){
-         $array = array();
+         $array = array('1'=>0,'2'=>0,'3'=>0);
        
-            $sql = "SELECT DATE_FORMAT(date_sale, '%y-%m-%d') as date_sale, SUM(total_price) as total FROM sales WHERE id_company = :id_company AND date_sale BETWEEN :period1 AND :period2 GROUP BY DATE_FORMAT(date_sale, '%y-%m-%d')";
+        $sql = "SELECT COUNT(status) as total, status FROM sales WHERE id_company = :id_company AND date_sale BETWEEN :period1 AND :period2 GROUP BY status ASC";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(":period1", $period1);
         $sql->bindValue(":period2", $period2);
@@ -235,20 +235,16 @@ class Sales extends model{
         $sql->execute();
        
        if($sql->rowCount()>0){
-           $rows = $sql->fetchAll();
-           
-                
+           $rows = $sql->fetchAll();          
+          // print_r($rows);
+         //  exit();
            foreach ($rows as $sale_item){
-            
-              $array[$sale_item['date_sale']] = $sale_item['total'];
+             $array[$sale_item['status']] = $sale_item['total'];
              
-           }
-           
+           }           
        }
       
-      return $array;
-        
-        
+      return $array;       
         
     }
    
