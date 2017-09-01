@@ -171,6 +171,21 @@ button,
     color: #000;
     
 }
+.button_small_view_nfe{
+    background-color: #2E9AFE;
+    height: 30px;
+    line-height: 30px;
+    color: #000;
+}
+
+
+.button_small_generate{
+    background-color: #04B404;
+    height: 30px;
+    line-height: 30px;
+    color: #000;
+}
+
 .button_small_delet{
     background-color: #EC5353;
     height: 30px;

@@ -37,6 +37,8 @@
     <input type="text" name="addres_neighb" value="<?php echo $client_info['addres_neighb'];?>"/></br>
     <label for="addres_city">Cidade</label></br>
     <input type="text" name="addres_city" value="<?php echo $client_info['addres_city'];?>"/></br>
+    <label for="addres_citycode">Código Cidade- IBGE</label></br>
+    <input type="text" name="addres_citycode"/></br>
     <label for="addres_state">Estado</label></br>
     <input type="text" name="addres_state" value="<?php echo $client_info['addres_state'];?>"/></br>
     <label for="addres_country">Pais</label></br>

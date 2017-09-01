@@ -1,17 +1,5 @@
 {
-    "name": "vendor/php-company",
-    "description": "Descrição do projeto PhpCompany.",
-    "authors": [
-        {
-            "name": "joaoromario",
-            "email": "joaoromario@gmail.com"
-        }
-    ],
-  "require": {"nfephp-org/nfephp":"^4.0"
-            
-    },
-     "require": {"monolog/monolog":"1.0.*"
-            
-    }
-    
+	"require":{
+		"nfephp-org/nfephp":"^4.0"
+	}
 }

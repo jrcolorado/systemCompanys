@@ -3,3 +3,10 @@ $(function(){
 });
 
 
+$("#clickMe").click(function () {
+    $(".myForms").trigger('submit'); 
+});
+
+
+
+

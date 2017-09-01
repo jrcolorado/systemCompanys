@@ -1,5 +1,6 @@
 <h1>Adcionar Produto</h1>
 
+
 <form method="POST">
     <label for="name">Descrição do Produto</label></br>
     <input type="text" autofocus="name"name="name" required/></br></br>
@@ -12,7 +13,7 @@
    
     <input type="submit" value="Salvar"/></br>
 </form>
-        
+   
 <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/jquery.mask.min.js"></script>
 <script type="text/javascript" src="<?php echo BASE_URL;?>/assets/js/script_inventory.js"></script>
    

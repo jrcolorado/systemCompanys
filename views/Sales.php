@@ -7,7 +7,7 @@
         <th>Data</th>
         <th>Status</th>
         <th>Valor</th>
-        <th>Ações</th>
+        <th width="250">Ações</th>
     </tr>
     <?php foreach ($sales_list as $sale_item):?>
     <tr>
@@ -21,7 +21,12 @@
         <td>R$<?php echo number_format($sale_item['total_price'],2,',','.');?></td>
          <td style="text-align: center" >
         <div class="button button_small_edit"><a href="<?php echo BASE_URL; ?>/Sales/edit/<?php echo $sale_item['id'] ?>">Editar</a></div>
-        </td>
+        <?php if(!empty($sale_item['nfe_key'])):?>
+        <div class="button button_small_view_nfe"><a target="_blank" href="<?php echo BASE_URL; ?>/Sales/view_nfe/<?php echo $sale_item['nfe_key'] ?>">Visualizar Nf-e</a></div>
+        <?php else:?>
+            <div class="button button_small_generate"><a target="_blank" href="<?php echo BASE_URL; ?>/Sales/generate_nfe/<?php echo $sale_item['id'] ?>">Emitir Nf-e</a></div>
+        <?php endif;?>
+         </td>
     </tr>
    
     <?php endforeach;?>

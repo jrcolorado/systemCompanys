@@ -48,6 +48,14 @@ class SalesController extends Controller{
         
     }
     
+    public function view_nfe($nfe_key){
+        
+    }
+    
+    public function generate_nfe($id){
+        
+    }
+    
     public function add(){
         
          $data = array();

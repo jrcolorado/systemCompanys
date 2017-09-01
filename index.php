@@ -19,12 +19,6 @@ spl_autoload_register(function ($class) {
     }
 });
 
-/*
-
-$log = new Monolog\Logger("teste");
-$log->pushHandler(new Monolog\Handler\StreamHandler('erros.log', Monolog\Logger::WARNING));
-$log->addError("Aviso! Deu algo Errado");
-*/
 $core = new Core();
 $core->run();
 ?>
