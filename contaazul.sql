@@ -48,30 +48,6 @@ CREATE TABLE `clients` (
 -- Dumping data for table `clients`
 --
 
-INSERT INTO `clients` (`id`, `id_company`, `name`, `email`, `phone`, `addres`, `addres_number1`, `addres_number2`, `addres_neighb`, `addres_city`, `addres_state`, `addres_country`, `addres_zipcode`, `stars`, `internal_obs`) VALUES
-(1, 1, 'JULIO MACHADO', 'joaoromario@gmail.com', '51991661595', 'RUA SÃ£O JOAQUIM', '111', '2525', 'ESTÃ¢NCIA VELHA', 'CANOAS', 'RS', 'BRASIL', '92030650', 5, 'GHGDXRTDXDI\r\nJHLCGKHDYTXDITY\r\nHFYTFYITDTY\r\nKGHDJTFJTRSRTI\r\nLUHGFYTIDITY\r\n'),
-(6, 1, 'JUCA BALA', 'JUCA@JUCA.COM.BR', '51991661595', 'RUA SANTO EXPEDITO', '5', '69', 'ESTÃ¢NCIA VELHA', 'CANOAS', 'RS', 'BRASIL', '92030640', 4, 'UYUYUYUYUYUYUYUYUYUYUYUYU'),
-(7, 1, 'EMPRESA JR COLORADO', 'julio@terra.com.br', '51991661595', 'RUA CONDE DE PORTO ALEGRE', '99', '11', 'FLORESTA', 'PORTO ALEGRE', 'RS', 'BRASIL', '90220210', 1, 'TSTSTSTSTSTSSTSTSTSTSTSTSTYSTSTSTS\r\nGSYTFYSAIYTYAS\r\nOUAYSFDIYTASDYIT\r\nOUYASFDYTIASFDO\r\n'),
-(8, 1, 'SISTEM MADEIRAS LTDA', 'cesar@terra.com.br', '51991661595', 'RUA SÃ£O JOAQUIM', '111', '2525', 'ESTÃ¢NCIA VELHA', 'CANOAS', 'RS', 'BRASIL', '92030650', 1, 'GHGDXRTDXDI\r\nUIGUFOCYCYTCYTYTCCYTICYTICYITCTYICIYTCI\r\nGDRTD\r\nUHFYIFCOYUTFIYFUYFYUFYUOFOUYFOUYFOUYFOUYFOYU'),
-(9, 1, 'ANA DA SILVA', 'teste@teste.com.br', '51991661595', '', '', '', '', 'PORTO ALEGRE', '', '', '', 3, ''),
-(10, 1, 'PEDRO ERNESTO DA SILVA', 'teste@teste.com.br', '51991661595', '', '', '', '', 'PORTO ALEGRE', '', '', '', 3, ''),
-(11, 1, 'MARCELO DA SILVA SANTOS', 'teste@teste.com.br', '51991661595', '', '', '', '', 'PORTO ALEGRE', '', '', '', 3, ''),
-(12, 1, 'EMPRESA DUAL MEDEIROS DA SILVA', 'teste@teste.com.br', '51991661595', '', '', '', '', 'PORTO ALEGRE', '', '', '', 3, ''),
-(24, 1, 'JULIO MACHADO SANTOS', 'teste@teste.com.br', '51991661595', '', '', '', '', 'PORTO ALEGRE', '', '', '', 3, ''),
-(138, 1, 'SILVANA BEATRIZ SANTOS MACHADO', 'teste@teste.com.br', '51991661595', '', '', '', '', 'PORTO ALEGRE', '', '', '92030650', 3, ''),
-(154, 1, 'SILVANA BEATRIS SANTOS MACHADO', 'teste@teste.com.br', '51991661595', 'RUA SÃ£O JOAQUIM', '1339', '', 'ESTÃ¢NCIA VELHA', 'CANOAS', 'RS', 'BRASIL', '92030650', 3, ''),
-(155, 1, 'SILVANA BEATRIS SANTOS MACHADO FERREIRA FERRARI LUNARDI', 'teste@teste.com.br', '51991661595', '', '', '', '', 'PORTO ALEGRE', '', '', '', 3, ''),
-(205, 1, 'JULIO MACHADO ', 'teste@teste.com.br', '51991661595', '', '', '', '', 'PORTO ALEGRE', '', '', '', 3, ''),
-(206, 1, 'JOAO ROMARIO DA SILVA FERREIRA SOBRINHO ', 'joaoromario@gmail.com', '51991661595', 'RUA SÃ£O JOAQUIM', '1339', 'casa A', 'ESTÃ¢NCIA VELHA', 'CANOAS', 'RS', 'BRASIL', '92030650', 3, 'MELHOR DOS MELHORES CLIENTS'),
-(207, 1, 'MARIA DA GRACA', '', '', '', '', '', '', '', '', '', '', 3, ''),
-(208, 1, 'SIMONE HORTS', '', '', '', '', '', '', '', '', '', '', 3, ''),
-(209, 1, 'SIMONE ANTUNES DE ALMEIDA', '', '', '', '', '', '', '', '', '', '', 3, ''),
-(210, 1, 'SIMONE FERRARI ZOTTIS', '', '', '', '', '', '', '', '', '', '', 3, ''),
-(211, 1, 'macedo de oliveira antunes', '', '', '', '', '', '', '', '', '', '', 3, ''),
-(212, 1, 'joana das carrocas ', '', '', '', '', '', '', '', '', '', '', 3, ''),
-(213, 1, 'joana das carrocas ', '', '', '', '', '', '', '', '', '', '', 3, ''),
-(214, 1, 'jorge antonio lisboa ', '', '', '', '', '', '', '', '', '', '', 3, ''),
-(215, 1, 'jorge antonio lisboa jardim ', '', '', '', '', '', '', '', '', '', '', 3, '');
 
 -- --------------------------------------------------------
 
@@ -111,15 +87,6 @@ CREATE TABLE `inventory` (
 -- Dumping data for table `inventory`
 --
 
-INSERT INTO `inventory` (`id`, `id_company`, `name`, `price`, `quant`, `min_quant`) VALUES
-(31, 1, 'SAPATO SOCIAL MASCULINO PRETO', 100, 12, 10),
-(32, 1, 'CAMISA POLO NIKE MASCULINA', 85, 9, 5),
-(33, 1, 'MEIA NIKE PCT C/4 UN ', 65, 1, 10),
-(34, 1, 'CASACO NIKE', 65, 2, 1),
-(35, 1, 'CAMISA POLO ADIDAS ', 100, 1, 1),
-(36, 1, 'CALCAO REEBOK', 25, 2, 5),
-(37, 1, 'KIT MEIAS', 100, 10, 10);
-
 -- --------------------------------------------------------
 
 --
@@ -138,85 +105,6 @@ CREATE TABLE `inventory_history` (
 --
 -- Dumping data for table `inventory_history`
 --
-
-INSERT INTO `inventory_history` (`id`, `id_company`, `id_product`, `action`, `id_user`, `date_action`) VALUES
-(3, 1, 31, 'add', 2, '2017-08-09 11:32:47'),
-(4, 1, 32, 'add', 2, '2017-08-09 12:28:13'),
-(5, 1, 33, 'add', 2, '2017-08-09 12:47:15'),
-(6, 1, 33, 'edit', 2, '2017-08-09 13:10:35'),
-(7, 1, 33, 'edit', 2, '2017-08-09 13:33:22'),
-(8, 1, 33, 'edit', 2, '2017-08-09 13:33:29'),
-(9, 1, 33, 'edit', 2, '2017-08-09 13:34:02'),
-(10, 1, 33, 'edit', 2, '2017-08-09 13:34:14'),
-(11, 1, 33, 'edit', 2, '2017-08-09 13:34:56'),
-(12, 1, 33, 'edit', 2, '2017-08-09 13:35:03'),
-(13, 1, 33, 'edit', 2, '2017-08-09 13:36:06'),
-(14, 1, 33, 'edit', 2, '2017-08-09 13:38:06'),
-(15, 1, 33, 'edit', 2, '2017-08-09 13:38:10'),
-(16, 1, 33, 'edit', 2, '2017-08-09 13:38:16'),
-(17, 1, 33, 'edit', 2, '2017-08-09 13:39:34'),
-(18, 1, 33, 'edit', 2, '2017-08-09 13:39:38'),
-(19, 1, 33, 'edit', 2, '2017-08-09 13:39:43'),
-(20, 1, 33, 'edit', 2, '2017-08-09 13:39:50'),
-(21, 1, 33, 'edit', 2, '2017-08-09 13:40:18'),
-(22, 1, 33, 'edit', 2, '2017-08-09 13:40:27'),
-(23, 1, 33, 'edit', 2, '2017-08-09 13:40:40'),
-(24, 1, 33, 'edit', 2, '2017-08-09 13:42:36'),
-(25, 1, 33, 'edit', 2, '2017-08-09 13:43:57'),
-(26, 1, 33, 'edit', 2, '2017-08-09 13:44:01'),
-(27, 1, 33, 'edit', 2, '2017-08-09 13:44:07'),
-(28, 1, 34, 'add', 2, '2017-08-09 13:45:30'),
-(29, 1, 34, 'edit', 2, '2017-08-09 13:46:05'),
-(30, 1, 31, 'edit', 2, '2017-08-09 14:07:28'),
-(31, 1, 34, 'edit', 2, '2017-08-09 14:08:46'),
-(32, 1, 34, 'edit', 2, '2017-08-09 14:09:06'),
-(33, 1, 34, 'edit', 2, '2017-08-09 14:09:13'),
-(34, 1, 31, 'edit', 2, '2017-08-09 14:10:09'),
-(35, 1, 33, 'edit', 2, '2017-08-09 14:10:18'),
-(36, 1, 34, 'edit', 2, '2017-08-09 14:10:28'),
-(37, 1, 32, 'edit', 2, '2017-08-09 14:10:36'),
-(38, 1, 31, 'edit', 2, '2017-08-09 14:10:43'),
-(39, 1, 31, 'edit', 2, '2017-08-09 14:10:54'),
-(40, 1, 31, 'edit', 2, '2017-08-09 14:11:12'),
-(41, 1, 0, 'add', 2, '2017-08-09 18:48:27'),
-(42, 1, 0, 'add', 2, '2017-08-09 18:48:46'),
-(43, 1, 34, 'edit', 2, '2017-08-09 18:48:57'),
-(44, 1, 0, 'add', 2, '2017-08-09 18:52:54'),
-(45, 1, 35, 'add', 2, '2017-08-09 18:56:53'),
-(46, 1, 31, 'edit', 2, '2017-08-09 19:03:11'),
-(47, 1, 33, 'edit', 2, '2017-08-09 19:03:20'),
-(48, 1, 32, 'edit', 2, '2017-08-09 19:03:31'),
-(49, 1, 35, 'add', 2, '2017-08-11 15:09:04'),
-(50, 1, 36, 'add', 2, '2017-08-13 19:50:13'),
-(51, 1, 36, 'edit', 2, '2017-08-13 19:50:28'),
-(52, 1, 36, 'dwn', 2, '2017-08-13 19:56:13'),
-(53, 1, 36, 'dwn', 2, '2017-08-13 19:56:48'),
-(54, 1, 36, 'dwn', 2, '2017-08-13 19:57:24'),
-(55, 1, 36, 'dwn', 2, '2017-08-13 19:57:57'),
-(56, 1, 33, 'dwn', 2, '2017-08-13 19:57:57'),
-(57, 1, 36, 'dwn', 2, '2017-08-13 19:58:51'),
-(58, 1, 33, 'dwn', 2, '2017-08-13 19:58:51'),
-(59, 1, 32, 'dwn', 2, '2017-08-13 20:01:17'),
-(60, 1, 32, 'dwn', 2, '2017-08-13 20:07:05'),
-(61, 1, 32, 'dwn', 2, '2017-08-13 20:07:21'),
-(62, 1, 34, 'dwn', 2, '2017-08-13 20:10:30'),
-(63, 1, 31, 'dwn', 2, '2017-08-13 20:11:34'),
-(64, 1, 31, 'dwn', 2, '2017-08-13 20:14:22'),
-(65, 1, 31, 'dwn', 2, '2017-08-13 20:15:52'),
-(66, 1, 32, 'dwn', 2, '2017-08-13 20:16:04'),
-(67, 1, 35, 'dwn', 2, '2017-08-13 20:16:22'),
-(68, 1, 32, 'dwn', 2, '2017-08-13 21:01:31'),
-(69, 1, 37, 'add', 2, '2017-08-14 08:24:32'),
-(70, 1, 37, 'dwn', 2, '2017-08-14 08:36:15'),
-(71, 1, 37, 'dwn', 2, '2017-08-14 08:37:54'),
-(72, 1, 37, 'dwn', 2, '2017-08-14 08:38:12'),
-(73, 1, 31, 'dwn', 2, '2017-08-14 13:16:03'),
-(74, 1, 34, 'dwn', 2, '2017-08-14 13:16:04'),
-(75, 1, 33, 'dwn', 2, '2017-08-14 13:16:04'),
-(76, 1, 35, 'dwn', 2, '2017-08-14 13:16:04'),
-(77, 1, 36, 'dwn', 2, '2017-08-14 13:16:04'),
-(78, 1, 31, 'dwn', 2, '2017-08-14 16:43:38');
-
 -- --------------------------------------------------------
 
 --
@@ -322,13 +210,6 @@ CREATE TABLE `sales` (
 -- Dumping data for table `sales`
 --
 
-INSERT INTO `sales` (`id`, `id_company`, `id_clients`, `id_user`, `date_sale`, `total_price`, `status`) VALUES
-(28, 1, 154, 2, '2017-08-14 08:36:15', 200, 1),
-(29, 1, 205, 2, '2017-08-14 08:37:53', 300, 2),
-(30, 1, 208, 2, '2017-08-14 08:38:12', 100, 1),
-(31, 1, 7, 2, '2017-08-14 13:16:03', 720, 3),
-(32, 1, 213, 2, '2017-08-14 16:43:38', 400, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -382,11 +263,6 @@ INSERT INTO `users` (`id`, `id_company`, `email`, `password`, `id_group`) VALUES
 (1, 2, 'user@teste.com.br', '202cb962ac59075b964b07152d234b70', '5'),
 (2, 1, 'joaoromario@gmail.com', '202cb962ac59075b964b07152d234b70', '2'),
 (3, 2, 'jrcolorado@hotmail.com', '202cb962ac59075b964b07152d234b70', '5'),
-(4, 1, 'jucabala@terra.com.br', '202cb962ac59075b964b07152d234b70', '4'),
-(5, 1, 'paula@rgw.con.br', '202cb962ac59075b964b07152d234b70', '4'),
-(8, 1, 'anajulia@terra.com.br', '202cb962ac59075b964b07152d234b70', '5'),
-(9, 1, 'micaelaabt@gmail.com', '202cb962ac59075b964b07152d234b70', '4');
-
 --
 -- Indexes for dumped tables
 --
